@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUILearning.LoginPage"
+             Title="LoginPage"
+             Shell.NavBarIsVisible="False">
+    <Grid BackgroundColor="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="220"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <!-- Second Path (blue fill) -->
+        <Path Stroke="#000" 
+           Data="m0,2l371,0l0,173.14286c0,15.93708 -15.45172,28.85714 -34.51163,28.85714l-301.97675,0c-19.06025,0 -34.51163,-12.92006 -34.51163,-28.85714l0,-173.14286z"  
+           Fill="#3c4cf5"
+         HeightRequest="280"
+         HorizontalOptions="FillAndExpand"
+         Aspect="Fill"/>    
+        <!-- First Path (red fill) -->
+        <Path Fill="White" 
+              Aspect="Fill"
+              WidthRequest="90"
+              HeightRequest="50"
+              HorizontalOptions="Start"
+              VerticalOptions="Start"
+              Margin="30,45,0,0"
+              Data="M429.3,330.6c27,40.9,64.2,89.1,105.1,141.2h-93c-31.1-49.1-73.1-107.2-107.1-149.4
+	c45.5-10.1,82.5-29.2,82.5-65.9c0-26.5-19.1-47.3-64.7-47.3c-18.1,0-33.2,1.2-45.5,1.2c-1.2,36.3-1.7,73.9-1.7,111.4
+	c0,51.2,2.8,102.3,4.8,150h-67.1C192.3,401.4,138,334,79.9,269.9c-0.9,52.4,0.5,130.1,6.3,201.7H22c2.1-47.6,4.9-98.7,4.9-150
+	S24.1,219.5,22,171.8h77.5c46.3,65.1,96.2,127.6,149.4,187.2c0-51.7-1.1-122-6.4-187.2c36.8,0.8,91.1-2.4,135.4-2.4
+	s80.8,3.5,104.7,27.3c12.8,13.2,19.6,31.1,18.8,49.5C501.4,281.3,474.6,314,429.3,330.6z M622,171.8c-2.1,47.6-4.9,98.8-4.9,150
+	s2.8,102.3,4.9,150h-80.8c2-47.6,4.9-98.7,4.9-150s-2.9-102.3-4.9-150H622z" />
+        <StackLayout>
+            <!-- https://editor.method.ac/ to create the vector use this -->
+            <Frame BackgroundColor="SkyBlue" HeightRequest="60" WidthRequest="60" CornerRadius="30" Padding="0" Margin="0,38,31,0" HorizontalOptions="End" >
+                <Image Source="https://www.findool.com/images/avatars/avatar.png" Aspect="AspectFill" Margin="0"/>
+            </Frame>
+        </StackLayout>
+        <Grid RowSpacing="5" Grid.Row="1" Margin="20,20,20,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="1" Text="Welcome!" HorizontalOptions="Center" FontSize="Title" FontAttributes="Bold" Padding="0" Margin="0"/>
+            <Label Grid.Row="2" Text="Sign in to continue" HorizontalOptions="Center" FontSize="Subtitle"/>
+            <StackLayout Grid.Row="3" Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                <Frame BackgroundColor="Transparent" BorderColor="LightBlue" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                    <StackLayout Orientation="Horizontal">
+                        <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                            <Image Source="https://cdn4.iconfinder.com/data/icons/glyphs/24/icons_user2-256.png" Aspect="AspectFill" Margin="0"/>
+                        </Frame>
+                        <Entry Text="{Binding UserName}" Placeholder="Username" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                    </StackLayout>
+                </Frame>
+                <Frame BackgroundColor="Transparent" BorderColor="LightBlue" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                    <StackLayout Orientation="Horizontal">
+                        <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                            <Image Source="https://cdn0.iconfinder.com/data/icons/basic-ui-elements-round/700/09_lock-256.png" Aspect="AspectFill" Margin="0"/>
+                        </Frame>
+                        <Entry Text="{Binding Password}" Placeholder="Password" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                    </StackLayout>
+                </Frame>
+                <StackLayout Orientation="Horizontal" Margin="0,10,0,0" Padding="0">
+                    <CheckBox IsChecked="False"/>
+                    <Label Text="Remember Me" TextColor="DarkGray" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Label Text="Forgot Password" TextColor="#1D8348" FontAttributes="Bold" HorizontalOptions="EndAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+                
+                <Button Text="SIGN IN" BackgroundColor="#58D68D" TextColor="White" FontAttributes="Bold" CornerRadius="30" WidthRequest="200" Margin="0,15,0,0" Command="{Binding LoginCommand}"/>
+                
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,60,0,0" Padding="0">
+                    <Label Text="New User?" TextColor="DarkGray" FontSize="Small"/>
+                    <Label Text="Sign Up" TextColor="#1D8348" FontAttributes="Bold" FontSize="Small"/>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>

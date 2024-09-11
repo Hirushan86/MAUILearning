@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MAUILearning.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MAUILearning"
+    xmlns:views ="clr-namespace:MAUILearning.Views"
+    Shell.FlyoutBehavior="Disabled"
+    Title="MAUILearning">
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:LoginPage}"
+        Route="MainPage" />
+
+    <FlyoutItem Route="HomePage" FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Title="Home" ContentTemplate="{DataTemplate views:HomePage}"/>
+    </FlyoutItem>
+
+</Shell>
